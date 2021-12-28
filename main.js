@@ -39,18 +39,20 @@ function draw() {
             noFill();
             stroke("#ff0000")
             rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+        
+    
+
+            if (objects[i].label == object1) {
+            video.stop();
+            objectDetector.detect(gotResult);
+
+            document.getElementById("object_found").innerHTML = object1 + " Found";
+            speak();
+        }
+            else {
+            document.getElementById("object_found").innerHTML = object1 + " Not Found";
         }
     }
-
-    if (objects[i].label == object1) {
-        video.stop();
-        objectDetector.detect(gotResult);
-
-        document.getElementById("object_found").innerHTML = object1 + " Found";
-        speak();
-    }
-    else {
-        document.getElementById("object_found").innerHTML = object1 + " Not Found";
     }
 }
 
